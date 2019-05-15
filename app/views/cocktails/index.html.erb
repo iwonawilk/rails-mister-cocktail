@@ -1,7 +1,19 @@
-<% @cocktails.each do |cocktail| %>
-  <%= link_to cocktail_path(cocktail) do %>
-   <li><%= cocktail.name %></li>
-  <% end %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1232152/pexels-photo-1232152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);">
+  <div class="container">
+    <h1><strong>Finder will help you find your delicious cocktails! </strong></h1>
+    <p>Create your own favourite cocktail.</p>
+    <%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-success"%>
+  </div>
+</div>
 
-<%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-primary"%>
+
+<div class="d-flex space-around justify-content-center">
+  <% @cocktails.each do |cocktail| %>
+    <%= link_to cocktail_path(cocktail) do %>
+      <div class="card-category m-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/1232152/pexels-photo-1232152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
+          <h2><%= cocktail.name %></h2>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
