@@ -6,14 +6,18 @@
   </div>
 </div>
 
-
-<div class="d-flex space-around justify-content-center">
-  <% @cocktails.each do |cocktail| %>
-    <%= link_to cocktail_path(cocktail) do %>
-      <div class="card-category m-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/1232152/pexels-photo-1232152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
-          <h2><%= cocktail.name %></h2>
-      </div>
-    <% end %>
-  <% end %>
+<h2 class="container my-3">All cocktails:</h2>
+<div class="container">
+  <div class="row">
+    <div class="cards col-sm-2 col-md-8 col-lg-12">
+      <% @cocktails.each do |cocktail| %>
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="card-category m-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.picture %>')">
+              <h2><%= cocktail.name %></h2>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
